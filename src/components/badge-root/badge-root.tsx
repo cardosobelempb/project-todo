@@ -7,15 +7,18 @@ type BadgeRootProps = ElementRootProps & {};
 export const BadgeRoot: React.FunctionComponent<BadgeRootProps> = ({
   children,
   className,
-  as = "span",
+  as = "div",
+  size = "text-xs",
+  font = "font-bold",
 }) => {
   return (
     <ElementRoot
       as={as}
       className={clsx(
-        "min-w-2.5 flex justify-center items-center text-xs font-bold size-5 p-1 rounded-full",
-        className
+        "flex justify-center items-center px-1 rounded-full",
+        `${size && size} ${font && font} ${className}`
       )}
+      // size={size}
     >
       {children}
     </ElementRoot>

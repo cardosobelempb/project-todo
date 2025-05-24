@@ -2,7 +2,7 @@ import { clsx } from "clsx";
 import type { IconType } from "react-icons";
 import type { ElementRootProps } from "../types/element.type";
 
-type IconRootProps = ElementRootProps & {
+export type IconRootProps = ElementRootProps & {
   icon: IconType;
   size?: number | string;
   className?: string;
@@ -14,7 +14,8 @@ export const IconRoot: React.FunctionComponent<IconRootProps> = ({
   icon: ElementRoot,
   spin = false,
   size = 24,
-  color = "inherit",
+  strock,
+  fill,
   className,
   onClick,
 }) => {
@@ -24,8 +25,10 @@ export const IconRoot: React.FunctionComponent<IconRootProps> = ({
     <ElementRoot
       onClick={onClick}
       size={size}
-      color={color}
-      className={clsx("", `${event} ${animate}  ${className}`)}
+      className={clsx(
+        "",
+        `${event} ${animate} ${strock && strock} ${fill && fill}  ${className}`
+      )}
     />
   );
 };
