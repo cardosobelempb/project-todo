@@ -8,4 +8,7 @@ npm i
 
 ```
 npm install tailwindcss @tailwindcss/vite
+npm i clsx
+npm install react-icons --save
+
 ```
