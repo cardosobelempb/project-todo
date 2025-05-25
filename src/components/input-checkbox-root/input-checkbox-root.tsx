@@ -15,15 +15,20 @@ export const InputCheckBoxRoot: React.FunctionComponent<CheckBoxRootProps> = ({
   strock,
   fill,
   icon,
+  h = "h-6",
+  w = "w-6",
+  p = "p-0.5",
 }) => {
   const baseClasses = clsx(
-    "w-6 h-6 appearance-none peer flex items-center justify-center border-2 border-green-500 hover:border-green-800 hover:bg-green-800 transition overflow-hidden cursor-pointer rounded",
+    "appearance-none peer flex items-center justify-center border-2 border-green-500 hover:border-green-800 hover:bg-green-800 transition overflow-hidden cursor-pointer rounded",
     className,
     label,
     error,
     isFocus && "focus:border-pink-500 group",
     isChecked &&
-      "checked:border-green-500 checked:bg-green-500 group-hover:checked:border-green-800 group-hover:checked:bg-green-800 relative"
+      "checked:border-green-500 checked:bg-green-500 group-hover:checked:border-green-800 group-hover:checked:bg-green-800 relative",
+    h,
+    w
   );
 
   return (
@@ -38,8 +43,11 @@ export const InputCheckBoxRoot: React.FunctionComponent<CheckBoxRootProps> = ({
           <IconRoot
             strock={strock}
             fill={fill}
-            className="w-auto absolute top-1/2 left-0 -translate-y-1/2 p-1.5 hidden peer-checked:block fill-white"
+            className="absolute top-1/2 left-0 -translate-y-1/2 hidden peer-checked:block fill-white"
             icon={icon}
+            h={h}
+            w={w}
+            p={p}
           />
         )}
       </InputRoot>

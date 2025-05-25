@@ -17,6 +17,9 @@ export const IconRoot: React.FunctionComponent<IconRootProps> = ({
   strock,
   fill,
   className,
+  h = "h-6",
+  w = "w-6",
+  p = "p-0.5",
   onClick,
 }) => {
   const animate = spin && "animate-spin";
@@ -27,7 +30,9 @@ export const IconRoot: React.FunctionComponent<IconRootProps> = ({
       size={size}
       className={clsx(
         "",
-        `${event} ${animate} ${strock && strock} ${fill && fill}  ${className}`
+        `${event} ${p} ${h} ${w} ${animate} ${strock && strock} ${
+          fill && fill
+        }  ${className}`
       )}
     />
   );

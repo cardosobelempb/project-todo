@@ -17,17 +17,19 @@ export const InputRoot: React.FunctionComponent<InputRootProps> = ({
   disabled,
   isFocus,
   px = "px-1",
+  pb,
   w,
   children,
   ...props
 }) => {
   const baseClasses = clsx(
-    "border-b border-gray-200 bg-transparent outline-none outline-none transition-colors pb-2 group relative",
+    "border-b border-gray-200 bg-transparent outline-none outline-none transition-colors group relative",
     isFocus && "focus:border-pink-500",
     label,
     error,
     disabled && "pointer-events-none opacity-60",
     px,
+    pb,
     font,
     leading,
     size,
@@ -37,7 +39,7 @@ export const InputRoot: React.FunctionComponent<InputRootProps> = ({
   const id = props.id || `input-${Math.random().toString(36).substr(2, 9)}`;
   return (
     <>
-      <div className="relative">
+      <div className={`relative ${w && w}`}>
         {label && (
           <label htmlFor={id} className="text-gray-700 text-sm">
             {label}

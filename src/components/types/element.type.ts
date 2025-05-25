@@ -8,7 +8,15 @@ import type {
   TextVariants,
 } from "./color.type";
 import type { FontVariants, LeadingVariants, SizeVariants } from "./text.type";
-import type { HVariants, PxVariants, PyVariants, WVariants } from "./default";
+import type {
+  HVariants,
+  PbVariants,
+  PtVariants,
+  PVariants,
+  PxVariants,
+  PyVariants,
+  WVariants,
+} from "./default";
 
 export type ElementRootProps<T extends ElementType = "span"> = {
   label?: string;
@@ -27,8 +35,11 @@ export type ElementRootProps<T extends ElementType = "span"> = {
   size?: SizeVariants;
   font?: FontVariants;
   leading?: LeadingVariants;
+  p?: PVariants;
   px?: PxVariants;
   py?: PyVariants;
+  pb?: PbVariants;
+  pt?: PtVariants;
   w?: WVariants;
   h?: HVariants;
 } & ComponentPropsWithoutRef<T>;

@@ -20,14 +20,19 @@ export const ButtonRoot: React.FunctionComponent<ButtonRootProps> = ({
   strock,
   px,
   py,
+  h,
+  w,
+  p,
   ...props
 }) => {
   return (
     <ElementRoot
       as={as}
       className={clsx(
-        "flex gap-x-1 group ",
-        `${size && size} ${font && font} ${leading && leading} ${className} ${
+        "justify-center flex gap-x-1 group items-center ",
+        `${size && size} ${font && font} ${leading && leading} ${p} ${
+          w && w
+        } ${h} ${className}  ${
           disabled
             ? `${bg ? bg : "bg-gray-100/50 hover:bg-gray-100"} ${
                 color ? color : "text-gray-500"
@@ -38,7 +43,14 @@ export const ButtonRoot: React.FunctionComponent<ButtonRootProps> = ({
       {...props}
     >
       {icon && (
-        <IconRoot strock={strock} fill={fill} className="p-1" icon={icon} />
+        <IconRoot
+          p={p}
+          h={h}
+          strock={strock}
+          fill={fill}
+          className="p-1"
+          icon={icon}
+        />
       )}
       {children}
     </ElementRoot>

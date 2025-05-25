@@ -13,6 +13,7 @@ import { BadgeRoot } from "./components/badge-root/badge-root";
 import { ButtonRoot } from "./components/button-root/button-root";
 import { InputRoot } from "./components/input-root/input-root";
 import { InputCheckBoxRoot } from "./components/input-checkbox-root/input-checkbox-root";
+import { BoxRoot } from "./components/box-root/box-root";
 
 export default function App() {
   return (
@@ -61,12 +62,13 @@ export default function App() {
           </BadgeRoot>
         </div>
 
-        <div className=" flex items-center gap-4">
+        <div className=" flex flex-col gap-y-4">
           <ButtonRoot
             className="bg-pink-100/50 px-3 py-2 rounded hover:bg-pink-100"
             icon={FaPlus}
             fill="fill-pink-500"
             onClick={() => alert("Button")}
+            w="w-full"
           >
             Nova Tarefa
           </ButtonRoot>
@@ -75,6 +77,7 @@ export default function App() {
             fill="fill-green-500"
             icon={FaPlus}
             onClick={() => alert("Button")}
+            w="w-full"
           >
             Nova Tarefa
           </ButtonRoot>
@@ -83,62 +86,121 @@ export default function App() {
             className="px-3 py-2 rounded"
             icon={FaPlus}
             onClick={() => alert("Button")}
+            w="w-full"
           >
             Disabled
           </ButtonRoot>
 
-          <ButtonRoot
-            className="bg-pink-500 rounded hover:bg-pink-800"
-            icon={FaRegTrashCan}
-            fill="fill-pink-100"
-            px="px-0"
-            py="py-0"
-            onClick={() => alert("Button")}
-          />
+          <div className="flex gap-y-4 justify-start">
+            <ButtonRoot
+              className="bg-pink-500 rounded hover:bg-pink-800"
+              icon={FaRegTrashCan}
+              fill="fill-pink-100"
+              px="px-0"
+              py="py-0"
+              onClick={() => alert("Button")}
+            />
 
-          <ButtonRoot
-            className="bg-pink-100/50 rounded hover:bg-pink-100"
-            icon={FaRegTrashCan}
-            fill="fill-pink-500"
-            px="px-0"
-            py="py-0"
-            onClick={() => alert("Button")}
-          />
+            <ButtonRoot
+              className="bg-pink-100/50 rounded hover:bg-pink-100"
+              icon={FaRegTrashCan}
+              fill="fill-pink-500"
+              px="px-0"
+              py="py-0"
+              onClick={() => alert("Button")}
+            />
 
-          <ButtonRoot
-            className=" bg-green-500  hover:bg-green-800 rounded"
-            fill="fill-green-100"
-            px="px-0"
-            py="py-0"
-            icon={FaRegTrashCan}
-            onClick={() => alert("Button")}
-          />
+            <ButtonRoot
+              className=" bg-green-500  hover:bg-green-800 rounded"
+              fill="fill-green-100"
+              px="px-0"
+              py="py-0"
+              icon={FaRegTrashCan}
+              onClick={() => alert("Button")}
+            />
 
-          <ButtonRoot
-            className=" bg-green-100/50 hover:bg-green-100 rounded"
-            fill="fill-green-500"
-            px="px-0"
-            py="py-0"
-            icon={FaRegTrashCan}
-            onClick={() => alert("Button")}
-          />
+            <ButtonRoot
+              className=" bg-green-100/50 hover:bg-green-100 rounded"
+              fill="fill-green-500"
+              px="px-0"
+              py="py-0"
+              icon={FaRegTrashCan}
+              onClick={() => alert("Button")}
+            />
 
-          <ButtonRoot
-            disabled
-            className="rounded"
-            px="px-0"
-            py="py-0"
-            icon={FaRegTrashCan}
-            onClick={() => alert("Button")}
-          />
+            <ButtonRoot
+              disabled
+              className="rounded"
+              px="px-0"
+              py="py-0"
+              icon={FaRegTrashCan}
+              onClick={() => alert("Button")}
+            />
+          </div>
+        </div>
+
+        <div className="flex flex-col gap-y-4">
+          <div>
+            <InputRoot w="w-full" isFocus icon={FaRegTrashCan} />
+            <InputRoot isFocus />
+          </div>
+          <div className="flex gap-x-4 items-center">
+            <InputCheckBoxRoot />
+            <InputCheckBoxRoot isChecked icon={FaCheck} />
+            <InputCheckBoxRoot isChecked disabled />
+            <InputCheckBoxRoot h="h-4" w="w-4" />
+            <InputCheckBoxRoot h="h-4" w="w-4" isChecked icon={FaCheck} />
+            <InputCheckBoxRoot h="h-4" w="w-4" isChecked disabled />
+          </div>
         </div>
 
         <div className="flex flex-col gap-4">
-          <InputRoot w="w-full" isFocus icon={FaRegTrashCan} />
-          <InputRoot isFocus />
-          <InputCheckBoxRoot />
-          <InputCheckBoxRoot isChecked icon={FaCheck} />
-          <InputCheckBoxRoot isChecked disabled />
+          <BoxRoot>
+            <InputCheckBoxRoot h="h-4" w="w-4" />
+            <InputRoot
+              pb="pb-2"
+              w="w-full"
+              placeholder="Fazer compras da semana"
+            />
+
+            <ButtonRoot
+              className="rounded"
+              px="px-0"
+              py="py-0"
+              fill="fill-gray-800"
+              icon={PiClipboardText}
+              onClick={() => alert("Button")}
+            />
+            <ButtonRoot
+              className="rounded"
+              px="px-0"
+              py="py-0"
+              fill="fill-gray-800"
+              icon={GoPencil}
+              onClick={() => alert("Button")}
+            />
+          </BoxRoot>
+
+          <BoxRoot>
+            <InputRoot
+              disabled
+              w="w-full"
+              placeholder="Fazer compras da semana"
+              pb="pb-2"
+            />
+
+            <ButtonRoot
+              className="bg-pink-100/50 rounded hover:bg-pink-100"
+              icon={FaX}
+              fill="fill-pink-500"
+              px="px-0"
+              py="py-0"
+              h="h-4"
+              w="w-4"
+              onClick={() => alert("Button")}
+            />
+            <InputCheckBoxRoot h="h-4" w="w-4" isChecked icon={FaCheck} />
+          </BoxRoot>
         </div>
       </div>
     </main>
