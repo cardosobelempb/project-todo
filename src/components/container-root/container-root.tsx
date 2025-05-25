@@ -10,13 +10,15 @@ export const ContainerRoot: React.FunctionComponent<ContainerRootProps> = ({
   as = "article",
   px,
   py,
+  w,
+  h,
 }) => {
   return (
     <ElementRoot
       as={as}
       className={clsx(
-        "flex items-center gap-x-3 rounded-lg border border-gray-200 bg-white shadow-sm p-5",
-        `${px && px} ${py && py} ${className}`
+        "mx-auto",
+        `${px && px} ${py && py} ${w && w} ${h && h} ${className}`
       )}
     >
       {children}
