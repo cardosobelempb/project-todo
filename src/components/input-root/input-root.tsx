@@ -1,0 +1,60 @@
+import { clsx } from "clsx";
+import type { InputHTMLAttributes } from "react";
+import { ElementRoot } from "../element-root/element-root";
+import type { ElementRootProps } from "../types/element.type";
+
+export type InputRootProps = ElementRootProps &
+  InputHTMLAttributes<HTMLInputElement | HTMLFormElement> & {};
+
+export const InputRoot: React.FunctionComponent<InputRootProps> = ({
+  label,
+  error,
+  className,
+  size,
+  font,
+  leading,
+  as = "input",
+  disabled,
+  isFocus,
+  px = "px-1",
+  w,
+  children,
+  ...props
+}) => {
+  const baseClasses = clsx(
+    "border-b border-gray-200 bg-transparent outline-none outline-none transition-colors pb-2 group relative",
+    isFocus && "focus:border-pink-500",
+    label,
+    error,
+    disabled && "pointer-events-none opacity-60",
+    px,
+    font,
+    leading,
+    size,
+    className,
+    w
+  );
+  const id = props.id || `input-${Math.random().toString(36).substr(2, 9)}`;
+  return (
+    <>
+      <div className="relative">
+        {label && (
+          <label htmlFor={id} className="text-gray-700 text-sm">
+            {label}
+          </label>
+        )}
+
+        <ElementRoot
+          as={as}
+          className={baseClasses}
+          disabled={disabled}
+          {...props}
+        />
+
+        {children}
+
+        {error && <span className="text-pink-500 text-xs">{error}</span>}
+      </div>
+    </>
+  );
+};

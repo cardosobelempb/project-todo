@@ -11,6 +11,8 @@ import { PiClipboardText } from "react-icons/pi";
 import { GoPencil } from "react-icons/go";
 import { BadgeRoot } from "./components/badge-root/badge-root";
 import { ButtonRoot } from "./components/button-root/button-root";
+import { InputRoot } from "./components/input-root/input-root";
+import { InputCheckBoxRoot } from "./components/input-checkbox-root/input-checkbox-root";
 
 export default function App() {
   return (
@@ -20,7 +22,7 @@ export default function App() {
           <TextRoot
             size="text-xs"
             font="font-semibold"
-            className="text-pink-800"
+            className="text-pink-800 "
           >
             ToDo List
           </TextRoot>
@@ -129,6 +131,14 @@ export default function App() {
             icon={FaRegTrashCan}
             onClick={() => alert("Button")}
           />
+        </div>
+
+        <div className="flex flex-col gap-4">
+          <InputRoot w="w-full" isFocus icon={FaRegTrashCan} />
+          <InputRoot isFocus />
+          <InputCheckBoxRoot />
+          <InputCheckBoxRoot isChecked icon={FaCheck} />
+          <InputCheckBoxRoot isChecked disabled />
         </div>
       </div>
     </main>

@@ -1,13 +1,9 @@
-import type { IconType } from "react-icons";
 import { ElementRoot } from "../element-root/element-root";
 import { IconRoot } from "../icon-root/icon-root";
 import type { ElementRootProps } from "../types/element.type";
 import { clsx } from "clsx";
 
-type ButtonRootProps = ElementRootProps & {
-  disabled?: boolean;
-  icon?: IconType;
-};
+type ButtonRootProps = ElementRootProps & {};
 
 export const ButtonRoot: React.FunctionComponent<ButtonRootProps> = ({
   children,
