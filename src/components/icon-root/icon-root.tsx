@@ -1,6 +1,6 @@
 import { clsx } from "clsx";
 import type { IconType } from "react-icons";
-import type { ElementRootProps } from "../types/element.type";
+import type { ElementRootProps } from "../utils/element.type";
 
 export type IconRootProps = ElementRootProps & {
   icon: IconType;

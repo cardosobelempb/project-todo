@@ -1,5 +1,5 @@
 import { ElementRoot } from "../element-root/element-root";
-import type { ElementRootProps } from "../types/element.type";
+import type { ElementRootProps } from "../utils/element.type";
 import { clsx } from "clsx";
 
 type BadgeRootProps = ElementRootProps & {};

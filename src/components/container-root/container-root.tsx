@@ -1,5 +1,5 @@
 import { ElementRoot } from "../element-root/element-root";
-import type { ElementRootProps } from "../types/element.type";
+import type { ElementRootProps } from "../utils/element.type";
 import { clsx } from "clsx";
 
 type ContainerRootProps = ElementRootProps & {};
@@ -7,7 +7,7 @@ type ContainerRootProps = ElementRootProps & {};
 export const ContainerRoot: React.FunctionComponent<ContainerRootProps> = ({
   children,
   className,
-  as = "article",
+  as = "main",
   px,
   py,
   w,
@@ -17,7 +17,7 @@ export const ContainerRoot: React.FunctionComponent<ContainerRootProps> = ({
     <ElementRoot
       as={as}
       className={clsx(
-        "mx-auto",
+        "w-full px-2 ",
         `${px && px} ${py && py} ${w && w} ${h && h} ${className}`
       )}
     >

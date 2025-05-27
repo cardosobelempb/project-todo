@@ -1,4 +1,4 @@
-import type { ElementRootProps } from "../types/element.type";
+import type { ElementRootProps } from "../utils/element.type";
 import { clsx } from "clsx";
 import { InputRoot } from "../input-root/input-root";
 import { IconRoot } from "../icon-root/icon-root";
@@ -15,8 +15,8 @@ export const InputCheckBoxRoot: React.FunctionComponent<CheckBoxRootProps> = ({
   strock,
   fill,
   icon,
-  h = "h-6",
-  w = "w-6",
+  h,
+  w,
   p = "p-0.5",
 }) => {
   const baseClasses = clsx(
@@ -43,7 +43,7 @@ export const InputCheckBoxRoot: React.FunctionComponent<CheckBoxRootProps> = ({
           <IconRoot
             strock={strock}
             fill={fill}
-            className="absolute top-1/2 left-0 -translate-y-1/2 hidden peer-checked:block fill-white"
+            className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 hidden peer-checked:block fill-white"
             icon={icon}
             h={h}
             w={w}

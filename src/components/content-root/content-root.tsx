@@ -1,11 +1,11 @@
+import { clsx } from "clsx";
 import { ElementRoot } from "../element-root/element-root";
 import type { ElementRootProps } from "../utils/element.type";
-import { clsx } from "clsx";
 import { twClassBuilder } from "../utils/tw-class-builder";
 
-type BoxRootProps = ElementRootProps & {};
+type ContentRootProps = ElementRootProps & {};
 
-export const BoxRoot: React.FunctionComponent<BoxRootProps> = ({
+export const ContentRoot: React.FunctionComponent<ContentRootProps> = ({
   children,
   className,
   b,
@@ -47,10 +47,7 @@ export const BoxRoot: React.FunctionComponent<BoxRootProps> = ({
   return (
     <ElementRoot
       as="div"
-      className={clsx(
-        "flex gap-x-3 rounded-lg border border-gray-200 bg-white shadow-sm p-5",
-        `${classBuilder} ${className}`
-      )}
+      className={clsx("mx-auto", `${classBuilder} ${className}`)}
       {...props}
     >
       {children}

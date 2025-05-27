@@ -1,14 +1,15 @@
-import type { ElementRootProps } from "../types/element.type";
-
-import type { FunctionComponent } from "react";
+import type { ElementType, ComponentPropsWithoutRef } from "react";
 import React from "react";
 
-export const ElementRoot: FunctionComponent<ElementRootProps> = ({
+export type ElementRootProps<T extends ElementType = "span"> =
+  ComponentPropsWithoutRef<T> & {};
+
+export const ElementRoot = <T extends ElementType = "span">({
   as = "span",
   className,
   children,
   ...props
-}) => {
+}: ElementRootProps<T>) => {
   return React.createElement(
     as,
     {

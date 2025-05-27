@@ -1,7 +1,7 @@
 import { clsx } from "clsx";
 import type { InputHTMLAttributes } from "react";
 import { ElementRoot } from "../element-root/element-root";
-import type { ElementRootProps } from "../types/element.type";
+import type { ElementRootProps } from "../utils/element.type";
 
 export type InputRootProps = ElementRootProps &
   InputHTMLAttributes<HTMLInputElement | HTMLFormElement> & {};
@@ -13,7 +13,6 @@ export const InputRoot: React.FunctionComponent<InputRootProps> = ({
   size,
   font,
   leading,
-  as = "input",
   disabled,
   isFocus,
   px = "px-1",
@@ -46,12 +45,7 @@ export const InputRoot: React.FunctionComponent<InputRootProps> = ({
           </label>
         )}
 
-        <ElementRoot
-          as={as}
-          className={baseClasses}
-          disabled={disabled}
-          {...props}
-        />
+        <ElementRoot as="input" className={baseClasses} {...props} />
 
         {children}
 
