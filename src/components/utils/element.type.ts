@@ -1,4 +1,4 @@
-import type { ComponentPropsWithoutRef, ElementType, ReactNode } from "react";
+import type { ComponentPropsWithoutRef, ReactNode } from "react";
 
 import type { JSX } from "react";
 import type { IconType } from "react-icons";
@@ -7,17 +7,16 @@ import type {
   TypeFill,
   TypeStrock,
   TypeText,
-} from "./color.utils";
+} from "../color.utils";
 import type { HEIGTH, P, PB, PT, PX, PY, WIDTH } from "./size.utils";
-import type {} from "./text-utils";
 import type { B, BB, BE, BR, BT, ROUNDEND } from "./border.utils";
 
-export type ElementRootProps<T extends ElementType = "span"> = {
+export type ElementRootProps<T extends keyof JSX.IntrinsicElements> = {
   label?: string;
   error?: string;
   isChecked?: boolean;
   isFocus?: boolean;
-  as?: keyof JSX.IntrinsicElements | ElementType;
+  as?: keyof JSX.IntrinsicElements;
   disabled?: boolean;
   icon?: IconType;
   className?: string;
@@ -39,4 +38,9 @@ export type ElementRootProps<T extends ElementType = "span"> = {
   bb?: BB;
   bt?: BT;
   rounded?: ROUNDEND;
+  // textSize: TextSize;
+  // textWeight: TextWeight;
+  // textAlign: TextAlign;
+  // textTransform: TextTransform;
+  // textStyle: TextStyle;
 } & ComponentPropsWithoutRef<T>;

@@ -1,6 +1,6 @@
 // tw-class-builder.ts
 
-import { getColorClasses } from "./color.utils";
+import { getColorClasses } from "../color.utils";
 import { getSizeClasses } from "./size.utils";
 import { getBorderClasses } from "./border.utils";
 import { getPositionClasses } from "./position.utils";
@@ -9,17 +9,12 @@ import { getStateClasses } from "./state.utils";
 
 import type { TwClassBuilderVariantsWithState } from "./types";
 import { getSkeletonClasses } from "./skeleton-utils";
+import { getTextClasses } from "./text.utils";
 
 export function twClassBuilder(
   variants: TwClassBuilderVariantsWithState
 ): string {
   const {
-    // color
-    bg,
-    text,
-    fill,
-    strock,
-
     // size
     w,
     h,
@@ -55,12 +50,17 @@ export function twClassBuilder(
     animation,
     background,
 
+    // textVariant
+    textVariants,
+
+    // colorVariant
+    colorVariants,
+
     // state
     states,
   } = variants;
-
   return [
-    getColorClasses({ bg, text, fill, strock }),
+    colorVariants ? getColorClasses(colorVariants) : "",
     getSizeClasses({ w, h, p, px, py, pb, pt }),
     getBorderClasses({ b, bb, be, br, bt, rounded }),
     getPositionClasses({
@@ -75,6 +75,7 @@ export function twClassBuilder(
       zIndex,
     }),
     getDisplayClasses({ display }),
+    getTextClasses(textVariants ?? {}),
     getSkeletonClasses({ animation, background, rounded, w, h }),
     states ? getStateClasses(states) : "",
   ]

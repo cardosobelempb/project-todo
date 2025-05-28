@@ -21,20 +21,28 @@ import { SkeletonRoot } from "./components/skeleton-root/skeleton-root";
 export default function App() {
   return (
     <>
-      <ContainerRoot className="flex flex-col gap-y-5">
+      <ContainerRoot as="main" className="flex flex-col gap-y-5">
         <ContentRoot as="div" className="grid gap-y-5">
           <BoxRoot className=" flex flex-col gap-y-5">
-            <TextRoot size="text-xs" font="font-semibold" text="text-gray-800">
-              ToDo List
-            </TextRoot>
-            <TextRoot size="text-base" text="text-gray-800">
+            <TextRoot
+              as="h1"
+              variants={{
+                textVariants: {
+                  textSize: "text-base",
+                  textWeight: "font-semibold",
+                },
+                colorVariants: { bg: "green-800" },
+              }}
+            >
               ToDo List
             </TextRoot>
             <TextRoot
-              size="text-base"
-              leading="leading-6"
-              font="font-bold"
-              text="text-gray-800"
+              variants={{ textSize: "text-base", textWeight: "font-bold" }}
+            >
+              ToDo List
+            </TextRoot>
+            <TextRoot
+              variants={{ textSize: "text-base", textWeight: "font-semibold" }}
             >
               ToDo List
             </TextRoot>
@@ -54,11 +62,18 @@ export default function App() {
           </BoxRoot>
 
           <BoxRoot as="div" className=" flex gap-y-5">
-            <BadgeRoot size="text-xs" className="bg-pink-500/50 text-pink-800">
+            <BadgeRoot
+              textVariants={{
+                textSize: "text-xs",
+              }}
+              className="bg-pink-500/50 text-pink-800"
+            >
               5
             </BadgeRoot>
             <BadgeRoot
-              size="text-xs"
+              textVariants={{
+                textSize: "text-xs",
+              }}
               className="bg-green-500/50 text-green-800"
             >
               2 de 5
@@ -207,7 +222,7 @@ export default function App() {
         </ContentRoot>
 
         <ContentRoot className="flex flex-col gap-y-4">
-          <TextRoot as="h3">Skeleton Root</TextRoot>
+          <TextRoot>Skeleton Root</TextRoot>
           <SkeletonRoot w="w-full" h="h-40" />
           <SkeletonRoot w="w-lg" h="h-80" rounded="rounded-lg" />
           <SkeletonRoot w="w-lg" h="h-24" rounded="rounded-full" />

@@ -1,4 +1,70 @@
 // --- BASE CONFIG: shared colors e variantes suportadas ---
+export type ColorVariant = {
+  background: string;
+  text: string;
+};
+
+export type ColorIndex = {
+  white: "white";
+  black: "black";
+  gray: "gray";
+  green: "green";
+  pink: "pink";
+  transparent: "transparent";
+};
+
+export type ColorValue =
+  | "white"
+  | "black"
+  | "100"
+  | "200"
+  | "300"
+  | "400"
+  | "500"
+  | "600"
+  | "700"
+  | "800"
+  | "900"
+  | "transparent";
+
+export type TypeColorVariants = {
+  variant: ColorVariant;
+  index: ColorIndex;
+  value: ColorValue;
+};
+
+const variant = {
+  variant: {
+    background: "background",
+    text: "text",
+  },
+  index: {
+    white: "white",
+    black: "black",
+    gray: "gray",
+    green: "green",
+    pink: "pink",
+    transparent: "transparent",
+  },
+  value: {
+    white: "white",
+    black: "black",
+    "100": "100",
+    "200": "200",
+    "300": "300",
+    "400": "400",
+    "500": "500",
+    "600": "600",
+    "700": "700",
+    "800": "800",
+    transparent: "transparent",
+  },
+};
+
+console.log(
+  `${variant.variant.background}${variant.index.green}${variant.value[500]}`
+);
+
 const COLOR_NAMES = [
   "white",
   "black",
@@ -48,7 +114,7 @@ export type TypeFill = (typeof COLOR_VARIANT)["fill"][TypeColorValue];
 export type TypeStrock = (typeof COLOR_VARIANT)["strock"][TypeColorValue];
 
 export type ColorVariants = {
-  bg?: TypeBackground;
+  bg?: TypeColorValue;
   text?: TypeText;
   fill?: TypeFill;
   strock?: TypeStrock;
@@ -62,8 +128,8 @@ export function getColorClass(
   return COLOR_VARIANT[type]?.[value];
 }
 
-export function getColorClasses(variants: ColorVariants): string {
-  return Object.entries(variants)
+export function getColorClasses(colorVariants: ColorVariants): string {
+  return Object.entries(colorVariants)
     .map(([, value]) => value)
     .filter(Boolean)
     .join(" ");

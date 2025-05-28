@@ -1,6 +1,6 @@
 // classBuilder.ts
 
-import { type ColorVariants, getColorClasses } from "./color.utils"; // seu módulo de cores
+import { type ColorVariants, getColorClasses } from "../color.utils"; // seu módulo de cores
 import { type SizeVariants, getSizeClasses } from "./size.utils"; // seu módulo de tamanho
 import { type BorderVariants, getBorderClasses } from "./border.utils"; // seu módulo de borda
 import { type PositionVariants, getPositionClasses } from "./position.utils"; // seu módulo de posição

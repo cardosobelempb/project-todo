@@ -7,19 +7,19 @@ type ContainerRootProps = ElementRootProps & {};
 export const ContainerRoot: React.FunctionComponent<ContainerRootProps> = ({
   children,
   className,
-  as = "main",
   px,
   py,
   w,
   h,
+  ...props
 }) => {
   return (
     <ElementRoot
-      as={as}
       className={clsx(
         "w-full px-2 ",
         `${px && px} ${py && py} ${w && w} ${h && h} ${className}`
       )}
+      {...props}
     >
       {children}
     </ElementRoot>

@@ -1,8 +1,8 @@
 // text-utils.ts
-
+import type { JSX } from "react";
 // --- BASE CONFIG ---
 export const TEXT_CONFIG = {
-  size: [
+  textSize: [
     "text-xs",
     "text-sm",
     "text-base",
@@ -14,7 +14,7 @@ export const TEXT_CONFIG = {
     "text-5xl",
     "text-6xl",
   ] as const,
-  weight: [
+  textWeight: [
     "font-thin",
     "font-light",
     "font-normal",
@@ -24,7 +24,7 @@ export const TEXT_CONFIG = {
     "font-extrabold",
     "font-black",
   ] as const,
-  align: [
+  textAlign: [
     "text-left",
     "text-center",
     "text-right",
@@ -32,24 +32,30 @@ export const TEXT_CONFIG = {
     "text-start",
     "text-end",
   ] as const,
-  transform: ["uppercase", "lowercase", "capitalize", "normal-case"] as const,
-  style: ["italic", "not-italic"] as const,
+  textTransform: [
+    "uppercase",
+    "lowercase",
+    "capitalize",
+    "normal-case",
+  ] as const,
+  textStyle: ["italic", "not-italic"] as const,
 } as const;
 
 // --- TIPOS ---
-export type TextSize = (typeof TEXT_CONFIG.size)[number];
-export type TextWeight = (typeof TEXT_CONFIG.weight)[number];
-export type TextAlign = (typeof TEXT_CONFIG.align)[number];
-export type TextTransform = (typeof TEXT_CONFIG.transform)[number];
-export type TextStyle = (typeof TEXT_CONFIG.style)[number];
+export type TextSize = (typeof TEXT_CONFIG.textSize)[number];
+export type TextWeight = (typeof TEXT_CONFIG.textWeight)[number];
+export type TextAlign = (typeof TEXT_CONFIG.textAlign)[number];
+export type TextTransform = (typeof TEXT_CONFIG.textTransform)[number];
+export type TextStyle = (typeof TEXT_CONFIG.textStyle)[number];
 
 // --- VARIANT TYPE ---
 export type TextVariants = Partial<{
-  size: TextSize;
-  weight: TextWeight;
-  align: TextAlign;
-  transform: TextTransform;
-  style: TextStyle;
+  as: keyof JSX.IntrinsicElements;
+  textSize: TextSize;
+  textWeight: TextWeight;
+  textAlign: TextAlign;
+  textTransform: TextTransform;
+  textStyle: TextStyle;
 }>;
 
 // --- UTILITÁRIO ---
